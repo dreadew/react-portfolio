@@ -1,0 +1,43 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: .5rem;
+    .canvas {
+        position: relative;
+        opacity: 0;
+        will-change: transform;
+        transition: transform 3s, opacity 2s cubic-bezier(0.02, 0.71, 0, 1.04);
+        &.active {
+            opacity: 1;
+        }
+    }
+    
+    .err-desc {
+        span {
+            display: block;
+            color: var(--clr-primary-200);
+            opacity: 0;
+            will-change: opacity;
+            transition: opacity 1s ease-in-out;
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+    
+    .err-link {
+        span {
+            display: block;
+            color: var(--clr-primary-200);
+            opacity: 0;
+            will-change: opacity;
+            transition: opacity 1s ease-in-out;
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+}
