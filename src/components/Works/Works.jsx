@@ -72,7 +72,7 @@ function Works() {
         </div>
         <div className={styles['works-wrapper']}>
             <ul className={styles['works-list']}>
-                { portfolio?.map((item, idx) => (
+                { portfolio.map((item, idx) => (
                     <li className={styles['works-item']} key={`works item ${idx}`}>
                         <Link onMouseOver={onMouseEvent} onMouseLeave={onMouseLeave} ref={addToLinkRefs} to={`/works/${item.title}`} className={styles['works-link']}>
                             <div className={styles['link-text__wrapper']}>
@@ -82,7 +82,7 @@ function Works() {
                             </div>
                         </Link>
                     </li>
-                ))}
+                )) }
             </ul>
             <div className={styles['works-img__wrapper']}>
                 { portfolio?.map((item, idx) => (
