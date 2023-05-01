@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard/index'
 import Homepage from './components/pages/Homepage'
 import Portfolio from './components/pages/Portfolio';
 import NotFound from './components/NotFound/NotFound';
-import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import DetailView from './components/PortfolioGrid/DetailView/DetailView'
 import './firebase'
@@ -16,12 +16,11 @@ import axios from "axios";
 axios.defaults.baseURL = 'http://localhost:1337';
 
 function App() {
-  const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href");
   return (
     <AnimatePresence exitBeforeEnter initial={true}>
       <ToastContainer />
       <div className='App'>
-        <HashRouter basename={baseUrl}>
+        <BrowserRouter>
             <Header />
             <Routes>
               <Route exact path='/' element={<Homepage />}/>
@@ -30,7 +29,7 @@ function App() {
               <Route exact path='/works/:id' element={<DetailView />} />
               <Route exact path='/*' element={<NotFound />} />
             </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </div>
     </AnimatePresence>
   );
