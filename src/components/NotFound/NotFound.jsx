@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import styles from './NotFound.module.scss'
 import Blob from './Blob/Blob'
 import { Canvas } from '@react-three/fiber'
@@ -15,6 +15,16 @@ const Homepage = () => {
   }
 
   const { isIntersected } = useReveal(revealRefs, '');
+  
+  useLayoutEffect(() => {
+    let hash = this.props.location.hash.replace('#', '');
+    if (hash) {
+      let node = ReactDOM.findDOMNode(this.refs[hash]);
+      if (node) {
+        node.scrollIntoView();
+      }
+    }
+  }, [])
 
   return (
     <div className={styles['wrapper']}>

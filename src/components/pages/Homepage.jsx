@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import Hero from '../Hero/Hero'
 import About from '../About/About'
 import Works from '../Works/Works'
@@ -13,6 +13,15 @@ const variants = {
 
 
 const Homepage = () => {
+  useLayoutEffect(() => {
+    let hash = this.props.location.hash.replace('#', '');
+    if (hash) {
+      let node = ReactDOM.findDOMNode(this.refs[hash]);
+      if (node) {
+        node.scrollIntoView();
+      }
+    }
+  }, [])
   return (
     <motion.div initial="hidden" animate="enter" exit="exit" variants={ variants } transition={{ duration: 0.4, type: 'easeInOut' }} style={{ position: 'relative' }} >
       <Hero />
