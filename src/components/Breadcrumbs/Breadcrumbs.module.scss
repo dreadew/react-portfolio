@@ -1,0 +1,18 @@
+.breadcrumbs-wrapper {
+    .crumb {
+        display: inline-flex;
+        &-link {
+            text-decoration: none;
+            color: var(--clr-primary-300);
+        }
+        &::after {
+            content: "/";
+            color: var(--clr-primary-300);
+            margin-left: .25rem;
+            margin-right: .25rem;
+        }
+        &:last-child::after {
+            display: none;
+        }
+    }
+}
