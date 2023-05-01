@@ -105,24 +105,28 @@
                         }
                     }
                 }
-                .work-btn {
+                .work-btn-wrapper {
                     display: flex;
-                    width: max-content;
-                    flex-wrap: wrap;
-                    column-gap: .25rem;
-                    overflow: hidden;
-                    border: none;
-                    outline: none;
-                    background-color: var(--clr-primary-200);
-                    padding: 6px 48px;
-                    cursor: pointer;
-                    span {
-                        font-size: var(--font-size-200);
-                        color: var(--clr-primary-500);
-                        font-weight: 300;
-                        line-height: 2rem;
-                        will-change: transform;
-                        transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+                    column-gap: 1.5rem;
+                    .work-btn {
+                        display: flex;
+                        width: max-content;
+                        flex-wrap: wrap;
+                        column-gap: .25rem;
+                        overflow: hidden;
+                        border: none;
+                        outline: none;
+                        background-color: var(--clr-primary-200);
+                        padding: 6px 48px;
+                        cursor: pointer;
+                        span {
+                            font-size: var(--font-size-200);
+                            color: var(--clr-primary-500);
+                            font-weight: 300;
+                            line-height: 2rem;
+                            will-change: transform;
+                            transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+                        }
                     }
                 }
             }

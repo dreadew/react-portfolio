@@ -8,6 +8,7 @@ import { db } from '../../../firebase'
 import { toast } from 'react-toastify';
 import Breadcrumbs from '../../Breadcrumbs/Breadcrumbs';
 import 'react-toastify/dist/ReactToastify.css';
+import UpdateView from '../UpdateForm/UpdateView'
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -17,6 +18,7 @@ const variants = {
 
 const DetailView = () => {
   const { id } = useParams()
+  const [update, setUpdate] = useState(false)
   const [portfolio, setPortfolio] = useState([])
   const [user, setUser] = useState(null)
   const auth = getAuth()
@@ -78,15 +80,20 @@ const DetailView = () => {
                 <p className={styles['work-title']}><span>Overview</span></p>
                 <h5 className={styles['work-text']}><span>{item.overview}</span></h5>
               </div>
-              { user ?
+              { user &&
                 <div className={styles['work-info']}>
                   <p className={styles['work-title']}><span>Actions with this post</span></p>
-                  <button onClick={deletePost} className={styles['work-btn']}><span>Delete</span></button>
+                  <div className={styles['work-btn-wrapper']}>
+                    <button onClick={deletePost} className={styles['work-btn']}><span>Delete</span></button>
+                    <button onClick={() => setUpdate(!update)} className={styles['work-btn']}><span>Update</span></button>
+                  </div>
                 </div>
-                : ""
               }
             </div>
           </div>
+          {
+            user && update && <UpdateView data={portfolio} />
+          }
       </motion.section>
     ))
   )
