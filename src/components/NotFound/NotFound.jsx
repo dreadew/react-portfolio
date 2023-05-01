@@ -15,16 +15,6 @@ const Homepage = () => {
   }
 
   const { isIntersected } = useReveal(revealRefs, '');
-  
-  useLayoutEffect(() => {
-    let hash = this.props.location.hash.replace('#', '');
-    if (hash) {
-      let node = ReactDOM.findDOMNode(this.refs[hash]);
-      if (node) {
-        node.scrollIntoView();
-      }
-    }
-  }, [])
 
   return (
     <div className={styles['wrapper']}>

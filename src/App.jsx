@@ -16,11 +16,12 @@ import axios from "axios";
 axios.defaults.baseURL = 'http://localhost:1337';
 
 function App() {
+  const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href");
   return (
     <AnimatePresence exitBeforeEnter initial={true}>
       <ToastContainer />
       <div className='App'>
-        <HashRouter>
+        <HashRouter basename={baseUrl}>
             <Header />
             <Routes>
               <Route exact path='/' element={<Homepage />}/>

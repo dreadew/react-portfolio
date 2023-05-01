@@ -9,15 +9,6 @@ const variants = {
 }
 
 const Portfolio = () => {
-  useLayoutEffect(() => {
-    let hash = this.props.location.hash.replace('#', '');
-    if (hash) {
-      let node = ReactDOM.findDOMNode(this.refs[hash]);
-      if (node) {
-        node.scrollIntoView();
-      }
-    }
-  }, [])
   return (
     <motion.div initial="hidden" animate="enter" exit="exit" variants={variants} transition={{duration: 0.4, type: 'easeInOut'}} style={{ position: 'relative' }} >
       <PortfolioGrid />

@@ -37,13 +37,6 @@ const DetailView = () => {
     })
   }
   useLayoutEffect(() => {
-    let hash = this.props.location.hash.replace('#', '');
-    if (hash) {
-      let node = ReactDOM.findDOMNode(this.refs[hash]);
-      if (node) {
-        node.scrollIntoView();
-      }
-    }
     const getPortfolio = async () => {
       const querySnapshot = await getDocs(collection(db, 'portfolio'))
       setPortfolio(querySnapshot.docs.map((doc) => doc.data()).filter((data) => data.title === id))
