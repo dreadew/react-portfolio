@@ -1,11 +1,10 @@
+import { collection, doc, onSnapshot, query, updateDoc, where } from 'firebase/firestore'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import React, { useRef, useState } from 'react'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { db, storage } from '../../../firebase'
 import styles from './UpdateView.module.scss'
-import { auth, storage, db } from '../../../firebase'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { addDoc, doc, onSnapshot, query, updateDoc, where } from 'firebase/firestore'
-import { collection } from 'firebase/firestore'
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateView = (data) => {
   const form = useRef()
@@ -146,7 +145,7 @@ const UpdateView = (data) => {
     try {
         if (id !== undefined) {
             await updateDoc(doc(db, 'portfolio', id), work)
-            window.location.reload(false)
+            //window.location.reload(false)
             toast.success("Updated", {
                 position: toast.POSITION.TOP_RIGHT
             });

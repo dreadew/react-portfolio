@@ -1,11 +1,10 @@
+import { addDoc, collection } from 'firebase/firestore'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import React, { useRef, useState } from 'react'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { auth, db, storage } from '../../firebase'
 import styles from './Dashboard.module.scss'
-import { auth, storage, db } from '../../firebase'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { addDoc } from 'firebase/firestore'
-import { collection } from 'firebase/firestore'
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const form = useRef()
@@ -71,7 +70,7 @@ const Home = () => {
   const saveWork = async (work) => {
     try {
       await addDoc(collection(db, 'portfolio'), work)
-      window.location.reload(false)
+      //window.location.reload(false)
       toast.success("Created", {
         position: toast.POSITION.TOP_RIGHT
       });
